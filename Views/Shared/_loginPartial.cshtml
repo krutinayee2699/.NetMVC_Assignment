@@ -1,0 +1,48 @@
+﻿@*@if (Session["emailId"] == null)
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("Register", "Register", "LoginRegister", null, null)
+        </li>
+
+        <li>
+            @Html.ActionLink("Login", "Login", "LoginRegister", null, null)
+        </li>
+    </ul>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("Login Successful!!! Hi! " + Session["emailId"], "Index", "Home", null, null)
+        </li>
+
+        <li>
+            @Html.ActionLink("Logout", "Logout", "LoginRegister", null, null)
+        </li>
+    </ul>
+}*@
+
+<ul class="nav navbar-nav navbar-right">
+    <li>
+        @Html.ActionLink("Register", "Register", "LoginRegister", null, null)
+    </li>
+
+    <li>
+        @Html.ActionLink("Login", "Login", "LoginRegister", null, null)
+    </li>
+</ul>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
